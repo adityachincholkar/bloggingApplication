@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.blog.entities.Category;
 import com.blog.payloads.ApiResponse;
 import com.blog.payloads.CategoryDto;
 import com.blog.services.CategoryService;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/categories")
@@ -28,14 +28,14 @@ public class CategoryControlller {
 
     //create
     @PostMapping("/")
-    public ResponseEntity<CategoryDto> createCategory(@RequestBody CategoryDto categoryDto){
+    public ResponseEntity<CategoryDto> createCategory(@Valid @RequestBody CategoryDto categoryDto){
         CategoryDto createCategory =  categoryService.createCategory(categoryDto);
         return new ResponseEntity<>(createCategory,HttpStatus.CREATED);
     }
 
     //Update
     @PutMapping("/{categoryId}")
-    public ResponseEntity<CategoryDto> updateCategory(@RequestBody CategoryDto categoryDto,@PathVariable Integer categoryId){
+    public ResponseEntity<CategoryDto> updateCategory(@Valid @RequestBody CategoryDto categoryDto,@PathVariable Integer categoryId){
         CategoryDto categoryDto2 =  categoryService.updateCategory(categoryDto, categoryId ); 
         return new ResponseEntity<CategoryDto>(categoryDto2,HttpStatus.OK);
     }
@@ -43,7 +43,7 @@ public class CategoryControlller {
     //delete
     @DeleteMapping("/{cateogoryId}")
     public ResponseEntity<ApiResponse> deleteCategory(@PathVariable Integer cateogoryId){
-        categoryService.deleteCategory(cateogoryId)
+        categoryService.deleteCategory(cateogoryId);
         return new ResponseEntity<ApiResponse>(new ApiResponse("Category is deleted successfully",true),HttpStatus.OK);
     }
     //get
