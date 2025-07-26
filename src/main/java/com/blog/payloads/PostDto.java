@@ -15,6 +15,8 @@ import lombok.Setter;
 @NoArgsConstructor
 public class PostDto {
 
+    private String postId; 
+
     private String title;
 
     private String content;
@@ -23,9 +25,7 @@ public class PostDto {
 
     private Date addedDate;
 
-   
     private CategoryDto category;
-
     
     private UserDto user;
 
