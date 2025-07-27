@@ -2,6 +2,7 @@ package com.blog.controller;
 
 import java.util.List;
 
+import com.blog.config.AppConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -42,8 +43,8 @@ public class PostController {
     // get by user
     @GetMapping("/user/{userId}/posts")
     public ResponseEntity<PostResponse> getPostsByUser(@PathVariable Integer userId,
-                                                        @RequestParam (value = "pageNumber" , defaultValue = "0" , required = false)  Integer pageNumber,
-                                                       @RequestParam (value = "pageSize" ,defaultValue = "10" ,required = false) Integer pageSize
+                                                        @RequestParam (value = "pageNumber" , defaultValue = AppConfig.PAGE_NUMBER, required = false)  Integer pageNumber,
+                                                       @RequestParam (value = "pageSize" ,defaultValue = AppConfig.PAGE_SIZE ,required = false) Integer pageSize
     ){
         PostResponse posts = postService.getPostsByUser(userId,pageNumber,pageSize);
         
@@ -53,8 +54,8 @@ public class PostController {
     //get posts by category
     @GetMapping("/category/{categoryId}/posts")
     public ResponseEntity<PostResponse> getPostsByCategory(@PathVariable Integer categoryId,
-                                                           @RequestParam(value = "pageNumber" ,defaultValue = "0", required = false) Integer pageNumber,
-                                                           @RequestParam(value = "pageSize", defaultValue = "10" ,required = false) Integer pageSize
+                                                           @RequestParam(value = "pageNumber" ,defaultValue = AppConfig.PAGE_NUMBER, required = false) Integer pageNumber,
+                                                           @RequestParam(value = "pageSize", defaultValue = AppConfig.PAGE_SIZE ,required = false) Integer pageSize
     ){
         PostResponse posts = postService.getPostsByCategory(categoryId,pageNumber, pageSize);
         return new ResponseEntity<PostResponse>(posts,HttpStatus.OK);
@@ -63,10 +64,10 @@ public class PostController {
     // get all post
     @GetMapping("/posts")
     public ResponseEntity<PostResponse> getAllPosts(
-        @RequestParam(value = "pageNumber" , defaultValue = "0" , required = false)  Integer pageNumber, 
-        @RequestParam (value = "pageSize" , defaultValue= "10", required = false)Integer pageSize,
-        @RequestParam (value = "sortby" , defaultValue = "postId" , required = false) String sortby,
-        @RequestParam(value = "sortOrder" , defaultValue = "asc" , required = false) String sortOrder
+        @RequestParam(value = "pageNumber" , defaultValue = AppConfig.PAGE_NUMBER , required = false)  Integer pageNumber,
+        @RequestParam (value = "pageSize" , defaultValue= AppConfig.PAGE_SIZE, required = false)Integer pageSize,
+        @RequestParam (value = "sortby" , defaultValue = AppConfig.SORT_BY , required = false) String sortby,
+        @RequestParam(value = "sortOrder" , defaultValue = AppConfig.SORT_DIR , required = false) String sortOrder
         ){
         PostResponse posts = postService.getAllPost(pageNumber,pageSize,sortby,sortOrder);
         return new ResponseEntity<PostResponse>(posts,HttpStatus.OK);
@@ -91,4 +92,11 @@ public class PostController {
         return new ResponseEntity<PostDto>(pDto,HttpStatus.OK);
 
     }
+
+    @GetMapping("/posts/search/{keyword}")
+    public ResponseEntity<List<PostDto>>searchTitleByKeyword (@PathVariable(value = "keyword") String keyword){
+        List<PostDto> postDtos = postService.searchPosts(keyword);
+        return new ResponseEntity<List<PostDto>>(postDtos,HttpStatus.OK);
+    }
+
 }
