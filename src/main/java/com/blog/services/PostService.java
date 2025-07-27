@@ -2,7 +2,10 @@ package com.blog.services;
 
 import java.util.List;
 
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
+
 import com.blog.payloads.PostDto;
+import com.blog.payloads.PostResponse;
 
 public interface PostService {
 
@@ -17,17 +20,17 @@ public interface PostService {
 
     //get all post
 
-    List<PostDto> getAllPost(Integer pageNumber, Integer pageSize);
+    PostResponse getAllPost(Integer pageNumber, Integer pageSize,String sortby,String sortOrder);
 
     //get single post
 
     PostDto getPostById(Integer postId);
 
     // get all post by category
-    List<PostDto> getPostsByCategory(Integer categoryId);
+    PostResponse getPostsByCategory(Integer categoryId,Integer pageNumber, Integer pageSize);
 
     // get all posts by user
-    List<PostDto> getPostsByUser(Integer userId);
+    PostResponse getPostsByUser(Integer userId,Integer pageNumber, Integer pageSize);
 
     // search posts
     List<PostDto> searchPosts(String keyword);
