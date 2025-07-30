@@ -1,7 +1,11 @@
 package com.blog.payloads;
 
+import com.blog.entities.Comment;
 import jakarta.validation.constraints.*;
 import lombok.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @NoArgsConstructor
 @Getter
@@ -21,4 +25,6 @@ public class UserDto {
     private String password;
     @NotBlank
     private String about;
+
+
 }
