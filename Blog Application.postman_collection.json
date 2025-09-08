@@ -1,0 +1,618 @@
+{
+	"info": {
+		"_postman_id": "5ad0ddf0-06dd-4a08-9676-c750f2a9ec69",
+		"name": "Blog Application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40746934"
+	},
+	"item": [
+		{
+			"name": "User Apis",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \n        \"name\": \"tanish phophale\",\n        \"email\": \"tanish@gmail.com\",\n        \"password\": \"Hayabhusa@1\",\n        \"about\": \"asd\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhostURL}}/api/users/",
+							"host": [
+								"{{localhostURL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Phones",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "all kind of phones available",
+									"type": "text"
+								},
+								{
+									"key": "bgColor",
+									"value": "#ffffff",
+									"type": "text"
+								},
+								{
+									"key": "imgUrl",
+									"type": "file",
+									"src": "/home/aditya/Pictures/Screenshots/Screenshot from 2025-06-18 12-47-11.png"
+								},
+								{
+									"key": "category",
+									"value": "{\n    \"name\": \"Phones\",\n    \"description\":\"all kind of phones available\",\n    \"bgColor\": \"#ffffff\"\n}",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{localhostURL}}/api/users/1",
+							"host": [
+								"{{localhostURL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{localhostURL}}/api/users/1",
+							"host": [
+								"{{localhostURL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{localhostURL}}/api/users/",
+							"host": [
+								"{{localhostURL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{localhostURL}}/api/users/",
+							"host": [
+								"{{localhostURL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category Apis",
+			"item": [
+				{
+					"name": "Add Category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"categoryTitle\":\"Ai agents\",\n    \"categoryDescription\":\"This category contains info related to Ai\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhostURL}}/api/categories/",
+							"host": [
+								"{{localhostURL}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Categories",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get Category",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{localhostURL}}/api/categories/1",
+							"host": [
+								"{{localhostURL}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Category By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhostURL}}/api/categories/1",
+							"host": [
+								"{{localhostURL}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Category",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"categoryTitle\": \"Ai agents\",\n    \"categoryDescription\": \"This category contains info related to Ai agents\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhostURL}}/api/categories/3",
+							"host": [
+								"{{localhostURL}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post Apis",
+			"item": [
+				{
+					"name": "Create Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"Why java is most widely used\",\n    \"content\" : \"Its been in market form many years it has wide support\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhostURL}}/api/user/2/category/2/posts",
+							"host": [
+								"{{localhostURL}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"2",
+								"category",
+								"2",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Post by user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhostURL}}/api/user/2/category/2/posts",
+							"host": [
+								"{{localhostURL}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"2",
+								"category",
+								"2",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Post by category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhostURL}}/api/category/2/posts",
+							"host": [
+								"{{localhostURL}}"
+							],
+							"path": [
+								"api",
+								"category",
+								"2",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhostURL}}/api/posts",
+							"host": [
+								"{{localhostURL}}"
+							],
+							"path": [
+								"api",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Post by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhostURL}}/api/post/1",
+							"host": [
+								"{{localhostURL}}"
+							],
+							"path": [
+								"api",
+								"post",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Post by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{localhostURL}}/api/posts/1",
+							"host": [
+								"{{localhostURL}}"
+							],
+							"path": [
+								"api",
+								"posts",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Post",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"title\": \"what is anaconda\",\n            \"content\": \"python is a high-level, general-purpose programming language.\",\n            \"imageName\": \"default.png\"\n            \n            }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhostURL}}/api/posts/2",
+							"host": [
+								"{{localhostURL}}"
+							],
+							"path": [
+								"api",
+								"posts",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search by title",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhostURL}}/api/posts/search/anacond",
+							"host": [
+								"{{localhostURL}}"
+							],
+							"path": [
+								"api",
+								"posts",
+								"search",
+								"anacond"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/aditya/Pictures/Screenshots/Screenshot from 2025-07-28 10-40-06.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{localhostURL}}/api/post/image/upload/4",
+							"host": [
+								"{{localhostURL}}"
+							],
+							"path": [
+								"api",
+								"post",
+								"image",
+								"upload",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request Copy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/aditya/Pictures/Screenshots/Screenshot from 2025-07-28 10-40-06.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{localhostURL}}/api/post/image/",
+							"host": [
+								"{{localhostURL}}"
+							],
+							"path": [
+								"api",
+								"post",
+								"image",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CommentApis",
+			"item": [
+				{
+					"name": "Create Comment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\" : \"NO java is good\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhostURL}}/api/posts/4/user/2/comments",
+							"host": [
+								"{{localhostURL}}"
+							],
+							"path": [
+								"api",
+								"posts",
+								"4",
+								"user",
+								"2",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{localhostURL}}/api/comments/1",
+							"host": [
+								"{{localhostURL}}"
+							],
+							"path": [
+								"api",
+								"comments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "http://localhost:8080/api/users/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/plain"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n        \"name\": \"Tanish phophale\",\n        \"email\": \"Tanish@gmail.com\",\n        \"password\": \"Hayabhusa@1\",\n        \"about\": \"asd\"\n    }",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						""
+					]
+				},
+				"description": "Generated from cURL: curl --location 'http://localhost:8080/api/users/' \\\n--header 'Content-Type: text/plain' \\\n--data-raw ' {\n        \"name\": \"Tanish phophale\",\n        \"email\": \"Tanish@gmail.com\",\n        \"password\": \"Hayabhusa@1\",\n        \"about\": \"asd\"\n    }'"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "localhostURL",
+			"value": "http://localhost:8080",
+			"type": "default"
+		}
+	]
+}
